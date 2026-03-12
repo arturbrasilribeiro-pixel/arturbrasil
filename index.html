@@ -27,9 +27,11 @@
         }
     </script>
     <style>
+        /* Custom styles to meet technical requirements */
         body { font-family: 'Inter', sans-serif; background-color: #F9F8F4; color: #2C3531; }
         h1, h2, h3, .font-serif { font-family: 'Merriweather', serif; }
         
+        /* Chart Container Requirements */
         .chart-container {
             position: relative;
             width: 100%;
@@ -47,17 +49,34 @@
             .chart-container { height: 40vh; max-height: 350px; }
         }
 
+        /* Interactive Elements styling */
         .tab-btn.active { border-bottom: 2px solid #2C3531; font-weight: bold; color: #2C3531; }
         .tab-btn { color: #6b7280; transition: all 0.3s; }
         .checklist-item { transition: background-color 0.3s; }
         .checklist-item:hover { background-color: #f3f4f6; }
         
+        /* Unicode Icon Sizing */
         .icon-lg { font-size: 2.5rem; line-height: 1; display: inline-block; margin-bottom: 0.5rem;}
         .icon-md { font-size: 1.5rem; }
     </style>
 </head>
 <body class="bg-gastro-light min-h-screen text-gastro-dark antialiased">
 
+    <!-- Chosen Palette: Warm Neutrals & Slate (gastro-light: #F9F8F4, gastro-dark: #2C3531, gastro-profit: #4A7C59) -->
+    <!-- Application Structure Plan: The SPA is structured to guide the user from the overarching philosophy to specific, data-backed case studies. 
+         1. Hero: Establishes identity and value proposition.
+         2. Services Grid: Quick overview of capabilities.
+         3. Case Studies (The Core): 
+            - Menu Engineering uses a Scatter Chart (Chart.js) to map real spreadsheet data (CMV vs Margin), proving analytical skills.
+            - Biosafety uses an interactive accordion/checklist to show problem-solving logic (RDC 216 compliance).
+         4. CTA: Clear contact information. 
+         This linear narrative with interactive drill-downs prevents information overload while proving expertise. -->
+    <!-- Visualization & Content Choices: 
+         - Report Info: Menu item costs/margins -> Goal: Compare/Relationships -> Viz: Scatter Chart -> Library: Chart.js. Shows profitability landscape intuitively.
+         - Report Info: Biosafety non-conformities -> Goal: Organize/Inform -> Viz: Interactive Accordion Checklist -> Library: Vanilla JS + HTML/CSS. Shows logical progression from risk to solution without overwhelming text.
+         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. All visual elements are Unicode emojis or CSS/HTML. -->
+
+    <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-gastro-light/90 backdrop-blur-md border-b border-gastro-base shadow-sm">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
@@ -75,13 +94,14 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="filosofia" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 flex flex-col items-center text-center">
-        <p class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-semibold">Gastronomia, Gestão, Segurança e Marketing Digital</p>
+        <p class="text-sm uppercase tracking-widest text-gray-500 mb-4 font-semibold">Gastronomia, Gestão e Segurança Operacional</p>
         <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 text-gastro-dark leading-tight max-w-4xl">
             O equilíbrio entre o que o cliente <span class="text-gastro-accent italic">sente no prato</span> e o que o dono <span class="text-gastro-profit italic">vê no caixa.</span>
         </h1>
         <p class="text-lg md:text-xl text-gray-600 max-w-3xl mb-10 leading-relaxed">
-            Sou Bacharel em Gastronomia e meu trabalho foca em <strong>"arrumar a casa"</strong>: garantir que a operação seja segura para quem come, altamente lucrativa para quem investe e estrategicamente posicionada no ambiente digital.
+            Sou Bacharel em Gastronomia e meu trabalho foca em <strong>"arrumar a casa"</strong>: garantir que a operação seja segura para quem come e altamente lucrativa para quem investe.
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
             <a href="#casos" class="bg-gastro-dark text-white px-8 py-3 rounded-md font-medium hover:bg-gray-800 transition">Ver Resultados 📉</a>
@@ -89,17 +109,20 @@
         </div>
     </header>
 
+    <!-- Context Intro for Cases -->
     <section class="bg-white py-12 border-y border-gastro-base">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h2 class="text-2xl font-serif font-bold mb-4">Onde eu gero valor (Casos Reais)</h2>
             <p class="text-gray-600 leading-relaxed">
-                Nesta seção, apresento diagnósticos reais de consultoria. O objetivo é demonstrar como a união entre o rigor técnico da <strong>RDC 216 (ANVISA)</strong>, as estratégias avançadas de gestão como <strong>Engenharia de Cardápio</strong> e a implementação de <strong>Métricas de Marketing Digital</strong> transformam cozinhas desorganizadas em unidades de produção eficientes e negócios rentáveis.
+                Nesta seção, apresento diagnósticos reais de consultoria. O objetivo é demonstrar como a união entre o rigor técnico da <strong>RDC 216 (ANVISA)</strong> e estratégias avançadas de gestão como <strong>Engenharia de Cardápio</strong>, checklists gestão de estoque transformam cozinhas desorganizadas em unidades de produção eficientes. Você poderá interagir com os dados financeiros extraídos das fichas técnicas e explorar as soluções implementadas para mitigar riscos sanitários.
             </p>
         </div>
     </section>
 
+    <!-- Cases Section -->
     <main id="casos" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
 
+        <!-- Case 1: Menu Engineering -->
         <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <div class="inline-block bg-gastro-base text-gastro-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-4">Case: Oca Wine & Brie to me</div>
@@ -132,48 +155,17 @@
             </div>
         </article>
 
+        <!-- Divider -->
         <div class="border-t border-gastro-base w-full"></div>
 
-        <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="order-2 lg:order-1 w-full">
-                <p class="text-sm text-center text-gray-500 mb-2">Painel de Métricas Iterativas (Ciclo Construir-Medir-Aprender)</p>
-                <div class="chart-container">
-                    <canvas id="marketingChart"></canvas>
-                </div>
-                <p class="text-xs text-center text-gray-400 mt-3">* Visualização de performance comparativa: Antes da implementação do modelo híbrido vs. Após o ciclo de validação. O monitoramento contínuo foca em diminuir o CAC e aumentar o LTV e Conversão[cite: 34, 258, 269].</p>
-            </div>
-
-            <div class="order-1 lg:order-2">
-                <div class="inline-block bg-gastro-base text-gastro-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-4">Case: Framework Híbrido</div>
-                <h3 class="text-3xl font-serif font-bold mb-4">Implantação de Rotinas de Marketing Digital</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Frente à crescente digitalização e à demanda por autenticidade no setor gastronômico artesanal, atuar apenas no espaço físico não é mais sustentável. A gestão precisa de um ecossistema centrado na interação social[cite: 7, 164].
-                </p>
-                <div class="space-y-4">
-                    <div class="bg-gastro-light p-4 rounded-lg border border-gastro-base">
-                        <h4 class="font-bold flex items-center gap-2"><span class="icon-md">🎯</span> O Problema</h4>
-                        <p class="text-sm text-gray-600 mt-1">Dificuldades tecnológicas, ausência de funil de conversão claro e estratégias baseadas apenas em "achismos" e métricas de vaidade[cite: 32].</p>
-                    </div>
-                    <div class="bg-gastro-light p-4 rounded-lg border border-gastro-base">
-                        <h4 class="font-bold flex items-center gap-2"><span class="icon-md">📈</span> A Solução</h4>
-                        <p class="text-sm text-gray-600 mt-1">Implementação de um modelo teórico de negócio híbrido, integrando estratégias de <em>Social Commerce</em> e <em>Live Commerce</em> às operações[cite: 8]. Utilização de planilhas de validação baseadas no princípio "Construir-Medir-Aprender" para focar em métricas reais (CAC, LTV, Engajamento Social, Conversão)[cite: 34, 258].</p>
-                    </div>
-                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
-                        <h4 class="font-bold text-gastro-profit flex items-center gap-2"><span class="icon-md">🏆</span> O Resultado</h4>
-                        <p class="text-sm text-gastro-profit mt-1">Conexão emocional com o consumidor e consolidação da marca[cite: 10, 56]. A humanização aliada à tecnologia reduziu os custos de aquisição e impulsionou a intenção de recompra, garantindo escalabilidade comercial[cite: 76, 273].</p>
-                    </div>
-                </div>
-            </div>
-        </article>
-
-        <div class="border-t border-gastro-base w-full"></div>
-
+        <!-- Case 2: Biosafety -->
         <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div class="order-2 lg:order-1 bg-white p-6 rounded-xl border border-gastro-base shadow-sm">
                 <h4 class="font-serif font-bold text-lg mb-4 text-center border-b pb-2">Checklist Interativo de Adequação RDC 216</h4>
                 <p class="text-xs text-gray-500 mb-4 text-center">Clique nos itens para ver a solução implementada.</p>
                 
                 <div class="space-y-3" id="biosafety-accordion">
+                    <!-- Item 1 -->
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
                         <button class="w-full px-4 py-3 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition focus:outline-none" onclick="toggleAccordion('acc1')">
                             <span class="font-semibold text-sm flex items-center gap-2"><span class="text-red-500">❌</span> Presença de Vetores (Pragas)</span>
@@ -184,6 +176,7 @@
                             <span class="text-gastro-profit font-semibold mt-2 block">✓ Impacto: Eliminação do risco gravíssimo e adequação legal.</span>
                         </div>
                     </div>
+                    <!-- Item 2 -->
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
                         <button class="w-full px-4 py-3 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition focus:outline-none" onclick="toggleAccordion('acc2')">
                             <span class="font-semibold text-sm flex items-center gap-2"><span class="text-orange-500">⚠️</span> Risco de Contaminação Cruzada</span>
@@ -194,6 +187,7 @@
                             <span class="text-gastro-profit font-semibold mt-2 block">✓ Impacto: Proteção contra surtos de DTA (Doenças Transmitidas por Alimentos).</span>
                         </div>
                     </div>
+                    <!-- Item 3 -->
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
                         <button class="w-full px-4 py-3 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition focus:outline-none" onclick="toggleAccordion('acc3')">
                             <span class="font-semibold text-sm flex items-center gap-2"><span class="text-orange-500">⚠️</span> Ausência de Manutenção de Temperatura</span>
@@ -204,6 +198,7 @@
                             <span class="text-gastro-profit font-semibold mt-2 block">✓ Impacto: Qualidade sensorial mantida até a mesa e redução de estresse da equipe.</span>
                         </div>
                     </div>
+                    <!-- Item 4 -->
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
                         <button class="w-full px-4 py-3 flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition focus:outline-none" onclick="toggleAccordion('acc4')">
                             <span class="font-semibold text-sm flex items-center gap-2"><span class="text-yellow-500">⚠️</span> Ausência de Controles e Registros</span>
@@ -241,54 +236,54 @@
         </article>
     </main>
 
+    <!-- Context Intro for Services -->
     <section class="bg-gastro-dark text-white py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
             <h2 class="text-2xl font-serif font-bold mb-4">Como posso ajudar o seu negócio</h2>
             <p class="text-gray-300 leading-relaxed text-sm">
-                Meu trabalho é desenhado para proprietários e investidores que precisam de alguém para assumir a inteligência operacional da cozinha. Abaixo, detalho as cinco frentes principais de atuação para garantir que sua operação funcione como um relógio, unindo as pontas soltas entre a gestão financeira, a conformidade sanitária, a execução diária e as estratégias de marketing em múltiplos canais.
+                Meu trabalho é desenhado para proprietários e investidores que precisam de alguém para assumir a inteligência operacional da cozinha. Abaixo, detalho as quatro frentes principais de atuação para garantir que sua operação funcione como um relógio, unindo as pontas soltas entre a gestão financeira, a conformidade sanitária e a execução diária.
             </p>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="servicos" class="bg-gastro-dark text-white pb-20 pt-8">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
                 <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gastro-accent transition cursor-default">
                     <span class="icon-lg">🛡️</span>
                     <h4 class="text-xl font-serif font-bold mb-3">Consultoria RDC 216 / Biossegurança</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">Diagnóstico real da situação atual e implementação de normas sanitárias rigorosas para blindar o negócio, evitar multas, interdições e proteger a saúde do cliente.</p>
                 </div>
+                <!-- Card 2 -->
                 <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gastro-accent transition cursor-default">
                     <span class="icon-lg">📊</span>
                     <h4 class="text-xl font-serif font-bold mb-3">Engenharia de Cardápio (Menu Engineering)</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">Análise de custos inteligente, criação de Fichas Técnicas reais e estratégias de design de cardápio para aumentar o ticket médio e esmagar o CMV.</p>
                 </div>
+                <!-- Card 3 -->
                 <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gastro-accent transition cursor-default">
                     <span class="icon-lg">👥</span>
                     <h4 class="text-xl font-serif font-bold mb-3">Treinamento de Equipe Operacional</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">De nada vale o processo no papel se a equipe não sabe executar. Treino brigadas para trabalharem com foco em padrão absoluto e desperdício zero.</p>
                 </div>
+                <!-- Card 4 -->
                 <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gastro-accent transition cursor-default">
                     <span class="icon-lg">💻</span>
                     <h4 class="text-xl font-serif font-bold mb-3">Implantação de Softwares e Processos</h4>
                     <p class="text-gray-400 text-sm leading-relaxed">Organizo e digitalizo o fluxo de informações, garantindo rastreabilidade desde o recebimento da mercadoria até a finalização e entrega do prato.</p>
                 </div>
-                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700 hover:border-gastro-accent transition cursor-default md:col-span-2 lg:col-span-2">
-                    <span class="icon-lg">📱</span>
-                    <h4 class="text-xl font-serif font-bold mb-3">Rotinas de Marketing e Modelos Híbridos</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Implementação de modelos de negócio que integram o ambiente físico a estratégias consolidadas de <em>Social Commerce</em> e <em>Live Commerce</em>[cite: 5, 8]. Ofereço a montagem e acompanhamento de um quadro de métricas iterativas para a sua marca (focando em reduzir o Custo de Aquisição de Cliente e amplificar o Valor do Tempo de Vida) através de métricas de validação, personalização e construção de comunidade digital orientadas para a conversão efetiva[cite: 34, 43, 230].
-                    </p>
-                </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer / CTA -->
     <footer id="contato" class="bg-gastro-light py-20 border-t border-gastro-base text-center">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-3xl font-serif font-bold mb-6">Vamos conversar?</h2>
             <p class="text-gray-600 mb-8 text-lg">
-                Se você precisa profissionalizar sua operação, reduzir seus custos, estruturar uma rotina assertiva de marketing ou blindar seu negócio contra riscos sanitários, estou à disposição para um diagnóstico inicial.
+                Se você precisa profissionalizar sua operação, reduzir seus custos ou blindar seu negócio contra riscos sanitários, estou à disposição para um diagnóstico inicial.
             </p>
             <div class="bg-white p-8 rounded-xl border border-gastro-base shadow-sm inline-block w-full sm:w-auto">
                 <p class="font-serif text-xl font-bold text-gastro-dark mb-1">Artur de Souza Brasil Ribeiro</p>
@@ -300,13 +295,14 @@
         </div>
     </footer>
 
+    <!-- JavaScript Logic -->
     <script>
         // 1. Interactive Accordion Logic for Biosafety Section
         function toggleAccordion(id) {
             const content = document.getElementById(id);
             const allContents = document.querySelectorAll('#biosafety-accordion > div > div');
             
-            // Close others
+            // Close others (optional, comment out for multi-open)
             allContents.forEach(el => {
                 if(el.id !== id && !el.classList.contains('hidden')) {
                     el.classList.add('hidden');
@@ -321,9 +317,13 @@
             }
         }
 
+        // 2. Chart.js Implementation for Menu Engineering
         document.addEventListener('DOMContentLoaded', function() {
-            // 2. Chart.js Implementation for Menu Engineering
             const ctx = document.getElementById('menuChart').getContext('2d');
+            
+            // Extracted data from the provided spreadsheets (Brie to me / Oca Wine)
+            // Mapping CMV (%) to X-axis and Margem de Contribuição (R$) to Y-axis. 
+            // Bubble size represents Price (PV).
             const dataPoints = [
                 { x: 11, y: 32.78, r: 8, item: 'Bruscheta Tagu' },
                 { x: 12, y: 10.54, r: 5, item: 'Croissant Trad.' },
@@ -336,10 +336,11 @@
                 { x: 53, y: 308.76, r: 25, item: 'Camarão Gratinado' }
             ];
 
+            // Color logic based on CMV (Target is <= 35%)
             const bgColors = dataPoints.map(p => {
-                if (p.x <= 30) return 'rgba(74, 124, 89, 0.7)'; 
-                if (p.x <= 39) return 'rgba(245, 158, 11, 0.7)'; 
-                return 'rgba(166, 61, 64, 0.7)'; 
+                if (p.x <= 30) return 'rgba(74, 124, 89, 0.7)'; // Green (gastro-profit)
+                if (p.x <= 39) return 'rgba(245, 158, 11, 0.7)'; // Amber
+                return 'rgba(166, 61, 64, 0.7)'; // Red (gastro-danger)
             });
 
             new Chart(ctx, {
@@ -394,6 +395,7 @@
                     beforeDraw: (chart) => {
                         const {ctx, chartArea: {top, bottom, left, right}, scales: {x, y}} = chart;
                         ctx.save();
+                        // Draw a light green rectangle to highlight the "Sweet Spot" (CMV 20-35%, high margin)
                         const startX = x.getPixelForValue(20);
                         const endX = x.getPixelForValue(35);
                         ctx.fillStyle = 'rgba(74, 124, 89, 0.05)';
@@ -401,54 +403,6 @@
                         ctx.restore();
                     }
                 }]
-            });
-
-            // 3. Chart.js Implementation for Marketing Metrics
-            const mktCtx = document.getElementById('marketingChart').getContext('2d');
-            new Chart(mktCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Custo de Aquisição (CAC)', 'Engajamento Social (%)', 'Taxa de Retenção (%)'],
-                    datasets: [
-                        {
-                            label: 'Antes da Implementação (Sem Framework)',
-                            data: [45, 1.2, 12],
-                            backgroundColor: 'rgba(166, 61, 64, 0.7)',
-                            borderColor: 'rgba(166, 61, 64, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Após Ciclo: Construir-Medir-Aprender',
-                            data: [15, 6.5, 42],
-                            backgroundColor: 'rgba(74, 124, 89, 0.8)',
-                            borderColor: 'rgba(74, 124, 89, 1)',
-                            borderWidth: 1
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { 
-                            beginAtZero: true, 
-                            grid: { color: '#EBE7DE' },
-                            title: { display: true, text: 'Valores Relativos', font: {weight: 'bold'} }
-                        },
-                        x: { 
-                            grid: { display: false } 
-                        }
-                    },
-                    plugins: {
-                        legend: { position: 'top', labels: { font: { family: 'Inter' } } },
-                        tooltip: {
-                            backgroundColor: '#2C3531',
-                            padding: 12,
-                            titleFont: { family: 'Inter', size: 14 },
-                            bodyFont: { family: 'Inter', size: 13 }
-                        }
-                    }
-                }
             });
         });
     </script>
